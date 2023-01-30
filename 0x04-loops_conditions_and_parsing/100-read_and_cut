@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Read and extract fields in file
+# This script displays the contents of the file `/etc/passwd`.
+#   Only displays the username, user id, and user home directory path.
 
-FILE="/etc/passwd"
-
-while read LINE
+myfile="/etc/passwd"
+while IFS= read -r line
 do
-    echo "$LINE" | cut -d ":" -f1,3,6
-done < "$FILE"
+    echo "$line" | cut -d":" -f1,3,6
+done < "$myfile"
